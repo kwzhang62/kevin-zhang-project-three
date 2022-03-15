@@ -26,9 +26,9 @@ function SubmitMessage(props) {
         //TODO: add user input validation
 
         //push user input to the messages array
-        newMessagesArray.push(userInput);
+        // newMessagesArray.push(userInput);
         //concatenate the array into a string
-        const newMessagesData = newMessagesArray.join(";");
+        // const newMessagesData = newMessagesArray.join(";");
 
         // //create a reference to the db
         // const database = getDatabase(firebase);

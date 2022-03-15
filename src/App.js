@@ -3,7 +3,7 @@ import firebase from './firebase';
 //import react hooks
 import { useEffect, useState } from 'react';
 //import firebase modules
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 //import the MessageDisplay component
 import MessageDisplay from './MessageDisplay';
 //import SubmitMessage component
@@ -21,10 +21,8 @@ function App() {
     onValue(dbRef, (response) => {
       //parse the response from the db
       const data = response.val();
-
-      //the messages are stored in the db as a single string with each message separated by semi-colons
-      //parse the string into an array
-      const newArray = data.commitMessages.split(";");
+      //get the values from the commitMessages JSON object and parse it into an array
+      const newArray = Object.values(data.commitMessages);
       //set the value of commitMessagesArray to the new array
       setCommitMessagesArray(newArray);
     });
@@ -41,7 +39,6 @@ function App() {
         <h1>Take a commit, Leave a commit</h1>
       </header>
       <main>
-        {/* <h2>{commitMessage}</h2> */}
         <MessageDisplay messages={commitMessagesArray} randomize={randomIndex} />
         <SubmitMessage messages={commitMessagesArray} />
       </main>
