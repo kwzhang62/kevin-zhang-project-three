@@ -2,7 +2,7 @@ import firebase from "./firebase";
 //import react hooks
 import { useEffect, useState } from 'react';
 //import firebase modules
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, push } from 'firebase/database';
 
 function SubmitMessage(props) {
 
@@ -11,7 +11,8 @@ function SubmitMessage(props) {
 
     //create an array that holds the commit messages initally loaded from the db
     //messages submitted by the user will be pushed to this new array, which will then be pushed to the db
-    const newMessagesArray = props.messages;
+    // const newMessagesArray = props.messages;
+    // console.log("props.messages is: " + props.messages);
 
     //updates userInput state whenever the value of the input field is changed
     const handleInputChange = (event) => {
@@ -28,12 +29,13 @@ function SubmitMessage(props) {
         newMessagesArray.push(userInput);
         //concatenate the array into a string
         const newMessagesData = newMessagesArray.join(";");
-        console.log(newMessagesData);
 
-        //create a reference to the db
+        // //create a reference to the db
         // const database = getDatabase(firebase);
         // const dbRef = ref(database);
 
+        // //push the string holding the new message submitted by the user to the db
+        // push(dbRef, newMessagesData);
 
     }
 

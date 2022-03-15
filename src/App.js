@@ -4,13 +4,12 @@ import firebase from './firebase';
 import { useEffect, useState } from 'react';
 //import firebase modules
 import { getDatabase, ref, onValue } from 'firebase/database';
+//import the MessageDisplay component
+import MessageDisplay from './MessageDisplay';
 //import SubmitMessage component
 import SubmitMessage from './SubmitMessage';
 
 function App() {
-
-  //set and update the commit message to be displayed using state
-  const [commitMessage, setCommitMessage] = useState("");
 
   //declare an array for holding all the commit messages
   const [commitMessagesArray, setCommitMessagesArray] = useState([]);
@@ -31,28 +30,20 @@ function App() {
     });
   }, []);
 
-  //select a random message to display once commitMessagesArray has been updated
-  useEffect( () => {
-      //choose a random message from the array
-      const index = randomIndex(commitMessagesArray.length);
-      const randomMessage = commitMessagesArray[index];
-      //update commitMessage
-      setCommitMessage(randomMessage);
-  }, [commitMessagesArray])
-
   //return a random index number for an array
   const randomIndex = (arrayLength) => {
     return Math.floor(Math.random() * arrayLength);
   }
-
+  
   return (
     <>
       <header>
         <h1>Take a commit, Leave a commit</h1>
       </header>
       <main>
-        <h2>{commitMessage}</h2>
-        <SubmitMessage messages={commitMessagesArray}/>
+        {/* <h2>{commitMessage}</h2> */}
+        <MessageDisplay messages={commitMessagesArray} randomize={randomIndex} />
+        <SubmitMessage messages={commitMessagesArray} />
       </main>
     </>
   );
