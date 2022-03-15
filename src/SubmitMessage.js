@@ -33,7 +33,7 @@ function SubmitMessage(props) {
     //validates user input and updates the response message states as appropriate
     const validateInput = (input) => {
         //check if the user entered an empty string or nothing at all
-        if(input == "" || input == null) {
+        if(input === "" || input === null) {
             setResponseMessage("Please enter a commit message to submit.");
             setDisplayResponse(true);
         } else if(props.messages.includes(input)) { //check if the message already exists
