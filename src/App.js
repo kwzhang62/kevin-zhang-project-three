@@ -1,12 +1,9 @@
 import './App.css';
 import firebase from './firebase';
-//import react hooks
-import { useEffect, useState } from 'react';
-//import firebase modules
 import { getDatabase, ref, get } from 'firebase/database';
-//import the MessageDisplay component
+import { useEffect, useState } from 'react';
+
 import MessageDisplay from './MessageDisplay';
-//import SubmitMessage component
 import SubmitMessage from './SubmitMessage';
 
 function App() {
@@ -43,7 +40,7 @@ function App() {
   //return a random index number for an array
   const randomIndex = (arrayLength) => {
     return Math.floor(Math.random() * arrayLength);
-  }
+  };
   
   return (
     <>
@@ -52,7 +49,7 @@ function App() {
       </header>
       <main>
         <MessageDisplay messages={commitMessagesArray} randomize={randomIndex} />
-        <SubmitMessage />
+        <SubmitMessage messages={commitMessagesArray}/>
       </main>
     </>
   );
