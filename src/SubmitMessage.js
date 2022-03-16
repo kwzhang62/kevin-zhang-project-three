@@ -16,12 +16,12 @@ function SubmitMessage(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        //take the user input and put it in a variable for processing
-        const processedInput = userInput.trim();
+        //take the user input and put it in a variable
+        //this allows the value to been processed without affecting the state of userInput
         //remove any whitespace at the beginning and end of the user string
-        // processedInput = processedInput.trim();
+        const processedInput = userInput.trim();
 
-        //call the function for validating user input
+        //validate the input using the newly created variable rather than the state
         validateInput(processedInput);
     };
 
