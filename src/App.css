@@ -52,8 +52,12 @@ h1 {
   font-weight: 400;
 }
 
-.validationMessage {
+.validationFail {
   color: rgb(243, 40, 40);
+}
+
+.validationSuccess {
+  color: rgb(59, 223, 59);
 }
 
 .messageButtonsContainer {

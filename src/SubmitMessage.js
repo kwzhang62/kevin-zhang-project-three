@@ -29,22 +29,25 @@ function SubmitMessage(props) {
     const [displayResponse, setDisplayResponse] = useState(false);
     //initialize a state for the response message to the user's submission
     const [responseMessage, setResponseMessage] = useState("");
+    //initialize a state to track which css class to apply to the validation message
+    const [validationResponseStyle, setValidationResponseStyle] = useState("validationFail");
 
     //validates user input and updates the response message states as appropriate
     const validateInput = (input) => {
         //check if the user entered an empty string or nothing at all
         if(input === "" || input === null) {
             setResponseMessage("Please enter a commit message to submit.");
-            setDisplayResponse(true);
+            setValidationResponseStyle("validationFail")
         } else if(props.messages.includes(input)) { //check if the message already exists
             setResponseMessage("This message already has already been submitted.");
-            setDisplayResponse(true);
+            setValidationResponseStyle("validationFail")
         } else {
             setResponseMessage("Your submission has been received!");
-            setDisplayResponse(true);
+            setValidationResponseStyle("validationSuccess")
             //update the database
             updateDatabase(input);
         }
+        setDisplayResponse(true);
     };
 
     //updates the database with the user input
@@ -72,7 +75,7 @@ function SubmitMessage(props) {
                 <button>Leave Commit</button>
             </form>
             {
-                displayResponse ? <p className="validationMessage" onClick={handleValidationMessage}>{responseMessage}</p> : null
+                displayResponse ? <p className={`${validationResponseStyle}`} onClick={handleValidationMessage}>{responseMessage}</p> : null
             }
         </section>
     )
