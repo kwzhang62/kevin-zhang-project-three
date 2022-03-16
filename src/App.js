@@ -5,11 +5,15 @@ import { useEffect, useState } from 'react';
 
 import MessageDisplay from './MessageDisplay';
 import SubmitMessage from './SubmitMessage';
+import GetMessages from './GetMessages';
 
 function App() {
 
-  //declare an array for holding all the commit messages
+  //initialize a state for holding all the commit messages in an array
   const [commitMessagesArray, setCommitMessagesArray] = useState([]);
+
+  //initialize a state to track whether to render a commit message
+  const [renderMessage, setRenderMessage] = useState(true);
 
   //load the messages from the database on initial page render
   useEffect( () => {
@@ -31,6 +35,11 @@ function App() {
   const randomIndex = (arrayLength) => {
     return Math.floor(Math.random() * arrayLength);
   };
+
+  //update render message - call this function within child components
+  const showCommitMessage = (bool) => {
+    setRenderMessage(bool);
+  }
   
   return (
     <>
@@ -38,9 +47,18 @@ function App() {
         <h1>Take a commit, Leave a commit</h1>
       </header>
       <main>
-        <MessageDisplay messages={commitMessagesArray} randomize={randomIndex} />
+        <MessageDisplay 
+          messages={commitMessagesArray}
+          showMessage={renderMessage}
+          updateCommitMessage={showCommitMessage} 
+          randomize={randomIndex} 
+        />
         <SubmitMessage messages={commitMessagesArray}/>
+        <GetMessages messages={commitMessagesArray} updateCommitMessage={showCommitMessage}/>
       </main>
+      <footer>
+        <p>Created at Juno College</p>
+      </footer>
     </>
   );
 }

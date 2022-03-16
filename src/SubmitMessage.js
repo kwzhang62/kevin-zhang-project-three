@@ -15,7 +15,7 @@ function SubmitMessage(props) {
     //handles form submission
     const handleSubmit = (event) => {
         event.preventDefault();
-        
+
         //take the user input and put it in a variable
         //this allows the value to been processed without affecting the state of userInput
         //remove any whitespace at the beginning and end of the user string
