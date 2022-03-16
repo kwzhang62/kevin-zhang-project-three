@@ -17,6 +17,9 @@ function App() {
 
   //load the messages from the database on initial page render
   useEffect( () => {
+    // update the page title on intial render
+    document.title = "Take a Commit, Leave a Commit"
+
     // getCommitMessages();
     const database = getDatabase(firebase);
     const dbRef = ref(database);
@@ -44,20 +47,26 @@ function App() {
   return (
     <>
       <header>
-        <h1>Take a commit, Leave a commit</h1>
+        <div className="wrapper">
+          <h1>Take a Commit, Leave a Commit</h1>
+        </div>
       </header>
       <main>
-        <MessageDisplay 
-          messages={commitMessagesArray}
-          showMessage={renderMessage}
-          updateCommitMessage={showCommitMessage} 
-          randomize={randomIndex} 
-        />
-        <SubmitMessage messages={commitMessagesArray}/>
-        <GetMessages messages={commitMessagesArray} updateCommitMessage={showCommitMessage}/>
+        <div className="wrapper">
+          <MessageDisplay 
+            messages={commitMessagesArray}
+            showMessage={renderMessage}
+            updateCommitMessage={showCommitMessage} 
+            randomize={randomIndex} 
+          />
+          <SubmitMessage messages={commitMessagesArray}/>
+          <GetMessages messages={commitMessagesArray} updateCommitMessage={showCommitMessage}/>
+        </div>
       </main>
       <footer>
-        <p>Created at Juno College</p>
+        <div className="wrapper">
+          <p>Created at Juno College</p>
+        </div>
       </footer>
     </>
   );

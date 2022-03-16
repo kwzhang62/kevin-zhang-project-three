@@ -9,18 +9,18 @@ function GetMessages(props) {
         props.updateCommitMessage(true);
     }
     //show all the messages when the Take ALL the commits button is clicked
-    const handleAllMessagesClick = () => {
-        setShowAllMessages(true);
+    const handleAllMessagesClick = (bool) => {
+        setShowAllMessages(bool);
     }
 
     return (
-        <section>
+        <section className="messageButtonsContainer">
             <div className="messageButtons">
                 <button id='newMessageButton' onClick={handleNewMessageClick}>Take another commit</button>
-                <button id='allMessagesButton' onClick={handleAllMessagesClick}>Take ALL the commits!</button>
+                <button id='allMessagesButton' onClick={()=>{handleAllMessagesClick(true)}}>Take ALL the commits!</button>
             </div>
             {
-                showAllMessages ? <DisplayAllMessages messages={props.messages} /> : null
+                showAllMessages ? <DisplayAllMessages messages={props.messages} handleShowMessages={handleAllMessagesClick} /> : null
             }
         </section>
     )

@@ -59,15 +59,20 @@ function SubmitMessage(props) {
         setUserInput("");
     };
 
+    //hides the input validation message when the user clicks on it
+    const handleValidationMessage = () => {
+        setDisplayResponse(false);
+    }
+
     return (
-        <section>
+        <section className="messageFormContainer">
             <form action="" onSubmit={handleSubmit}>
                 <label htmlFor="newMessage">Leave a commit message</label>
                 <input type="text" id="newMessage" onChange={handleInputChange} value={userInput}/>
-                <button>Leave commit</button>
+                <button>Leave Commit</button>
             </form>
             {
-                displayResponse ? <p>{responseMessage}</p> : null
+                displayResponse ? <p className="validationMessage" onClick={handleValidationMessage}>{responseMessage}</p> : null
             }
         </section>
     )

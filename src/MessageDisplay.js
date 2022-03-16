@@ -5,7 +5,7 @@ function MessageDisplay(props) {
     //initialize a state to track the message to be displayed
     const [commitMessage, setCommitMessage] = useState("");
 
-    //check to see whether to update commitMessage whenever this component is rendered
+    //display the message on render
     useEffect(() => {
         //update commitMessage if one has not already been displayed AND props.messages has been populated
         if(props.showMessage && props.messages.length > 0) {
@@ -19,7 +19,9 @@ function MessageDisplay(props) {
     });
 
     return (
-        <h2>{commitMessage}</h2>
+        <section className="messageContainer">
+            <h3>{commitMessage}</h3>
+        </section>
     )
 }
 
