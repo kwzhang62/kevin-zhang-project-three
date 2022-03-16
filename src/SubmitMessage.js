@@ -71,12 +71,12 @@ function SubmitMessage(props) {
         <section className="messageFormContainer">
             <form action="" onSubmit={handleSubmit}>
                 <label htmlFor="newMessage">Leave a commit message</label>
-                <input type="text" id="newMessage" onChange={handleInputChange} value={userInput}/>
+                <input type="text" id="newMessage" onChange={handleInputChange} value={userInput} placeholder="Leave your commit here"/>
+                {
+                    displayResponse ? <p className={`${validationResponseStyle}`} onClick={handleValidationMessage}>{responseMessage}</p> : null
+                }
                 <button>Leave Commit</button>
             </form>
-            {
-                displayResponse ? <p className={`${validationResponseStyle}`} onClick={handleValidationMessage}>{responseMessage}</p> : null
-            }
         </section>
     )
 }

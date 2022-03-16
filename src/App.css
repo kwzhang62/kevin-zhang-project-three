@@ -1,5 +1,5 @@
 /* font imports */
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lato&family=Source+Code+Pro&display=swap');
 
 /* setup snippet */
 
@@ -38,6 +38,11 @@ header {
   font-size: 1.5rem;  
 }
 
+main,
+footer {
+  font-family: 'Lato', sans-serif;
+}
+
 h1 {
   margin: 0;
 }
@@ -47,9 +52,41 @@ h1 {
   /* margin-bottom: 20px; */
 }
 
-.messageContainer h3 {
+.messageContainer h3,
+.messageFormContainer input {
   font-family: 'Source Code Pro', monospace;
   font-weight: 400;
+}
+
+.messageFormContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.messageFormContainer label {
+  margin-bottom: 5px;
+}
+
+.messageFormContainer input {
+  min-width: 300px;
+  border: none;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+
+.messageFormContainer input:hover,
+.messageFormContainer input:focus {
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+.messageFormContainer input::placeholder {
+  font-size: 0.9rem;
+}
+
+.messageFormContainer input,
+.messageFormContainer button {
+  margin: 5px auto;
 }
 
 .validationFail {
