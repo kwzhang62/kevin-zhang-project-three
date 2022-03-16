@@ -1,6 +1,6 @@
 import './App.css';
 import firebase from './firebase';
-import { getDatabase, ref, get, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import { useEffect, useState } from 'react';
 
 import MessageDisplay from './MessageDisplay';
