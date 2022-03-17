@@ -75,7 +75,7 @@ function SubmitMessage(props) {
                 {
                     displayResponse ? <p className={`${validationResponseStyle}`} onClick={handleValidationMessage}>{responseMessage}</p> : null
                 }
-                <button>Leave Commit</button>
+                <button className="baseButton">Leave Commit</button>
             </form>
         </section>
     )

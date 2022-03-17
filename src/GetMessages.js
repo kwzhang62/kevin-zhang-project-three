@@ -16,8 +16,8 @@ function GetMessages(props) {
     return (
         <section className="messageButtonsContainer">
             <div className="messageButtons">
-                <button id='newMessageButton' onClick={handleNewMessageClick}>Take another commit</button>
-                <button id='allMessagesButton' onClick={()=>{handleAllMessagesClick(true)}}>Take ALL the commits!</button>
+                <button id='newMessageButton' onClick={handleNewMessageClick} className="baseButton">Take another commit</button>
+                <button id='allMessagesButton' onClick={()=>{handleAllMessagesClick(true)}} className="baseButton">Take ALL the commits!</button>
             </div>
             {
                 showAllMessages ? <DisplayAllMessages messages={props.messages} handleShowMessages={handleAllMessagesClick} /> : null

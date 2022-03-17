@@ -65,7 +65,7 @@ function App() {
       </main>
       <footer>
         <div className="wrapper">
-          <p>Created at Juno College</p>
+          <p>Created by Kevin Zhang at <a href="https://junocollege.com/" target="_blank" rel='noreferrer'>Juno College</a></p>
         </div>
       </footer>
     </>

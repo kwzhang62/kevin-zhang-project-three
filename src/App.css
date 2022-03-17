@@ -43,8 +43,17 @@ footer {
   font-family: 'Lato', sans-serif;
 }
 
+footer {
+  font-size: 0.8rem;
+}
+
 h1 {
   margin: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
 
 .messageContainer {
@@ -56,6 +65,10 @@ h1 {
 .messageFormContainer input {
   font-family: 'Source Code Pro', monospace;
   font-weight: 400;
+}
+
+.messageFormContainer {
+  margin-bottom: 10px;
 }
 
 .messageFormContainer form {
@@ -97,6 +110,16 @@ h1 {
   color: rgb(59, 223, 59);
 }
 
+.validationFail,
+.validationSuccess {
+  margin-bottom: 10px;
+}
+
+.validationFail:hover,
+.validationSuccess:hover {
+  cursor: pointer;
+}
+
 .messageButtonsContainer {
   display: flex;
   flex-direction: column;
@@ -107,5 +130,29 @@ h1 {
 
 .messageButtons {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+}
+
+.messageButtons button {
+  margin: 0 auto 10px;
+  /* margin-bottom: 10px; */
+}
+
+.baseButton {
+  min-width: 280px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(44,162,75);
+  border: none;
+  border-radius: 7px;
+  padding: 10px 30px;
+  line-height: 1.1rem;
+}
+
+.baseButton:hover,
+.baseButton:focus {
+  cursor: pointer;
+  background-color: rgb(44,146,75);
 }
