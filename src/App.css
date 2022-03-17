@@ -65,6 +65,7 @@ footer {
   padding: 10px 0;
   color: white;
   background-color: black;
+  margin-top: 20px;
 }
 
 h1 {
@@ -187,7 +188,7 @@ ul {
 }
 
 .allMessagesContainer button {
-  margin: 20px auto 60px;
+  margin: 20px auto 30px;
 }
 
 .baseButton {
@@ -217,6 +218,6 @@ ul {
 
 @media (max-width: 375px) {
   header {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 }
