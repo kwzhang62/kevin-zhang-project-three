@@ -15,7 +15,7 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 /* styles */
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -24,15 +24,22 @@ html {
   font-size: 125%;
 }
 
-body {
-  position: relative;
-  min-height: 100vh;
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
 }
 
 .wrapper {
   width: 90%;
   max-width: 1080px;
   min-width: 320px;
+  height: 100%;
   margin: 0 auto;
   text-align: center;
 }
@@ -40,7 +47,8 @@ body {
 header {
   padding: 50px 0;
   font-family: 'Alex Brush', cursive;
-  font-size: 1.5rem;  
+  font-size: 1.5rem;
+  transition: all 0.2s;
 }
 
 main,
@@ -48,23 +56,20 @@ footer {
   font-family: 'Lato', sans-serif;
 }
 
+main {
+  flex-grow: 1;
+}
+
 footer {
   font-size: 0.8rem;
-  /* padding-bottom: 5px; */
-  padding: 10px calc(50% - 160px);
-  position: absolute;
-  bottom: 0;
+  padding: 10px 0;
   color: white;
   background-color: black;
 }
 
-footer p {
-  width: 100%;
-  text-align: left;
-}
-
 h1 {
   margin: 0;
+  transition: all 0.2s;
 }
 
 a {
@@ -166,7 +171,7 @@ ul {
   /* min-width: 300px;
   width: 80%;
   max-width: 500px; */
-  width: clamp(300px, 80%, 500px);
+  width: clamp(280px, 80%, 500px);
   margin: 0 auto;
 }
 
@@ -176,8 +181,8 @@ ul {
   margin: 10px auto;
 }
 
-.messagesList Li:focus,
-.messagesList Li:hover {
+.messagesList li:focus,
+.messagesList li:hover {
   font-weight: bold;
 }
 
@@ -201,4 +206,17 @@ ul {
 .baseButton:focus {
   cursor: pointer;
   background-color: rgb(44,146,75);
+}
+
+@media (max-width: 750px) {
+  h1 {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 375px) {
+  header {
+    font-size: 1.2rem;
+  }
 }
