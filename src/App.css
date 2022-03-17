@@ -220,4 +220,7 @@ ul {
   header {
     font-size: 1.3rem;
   }
+  h1 {
+    max-width: 300px;
+  }
 }
