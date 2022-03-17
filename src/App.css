@@ -24,6 +24,11 @@ html {
   font-size: 125%;
 }
 
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
 .wrapper {
   width: 90%;
   max-width: 1080px;
@@ -45,6 +50,17 @@ footer {
 
 footer {
   font-size: 0.8rem;
+  /* padding-bottom: 5px; */
+  padding: 10px calc(50% - 160px);
+  position: absolute;
+  bottom: 0;
+  color: white;
+  background-color: black;
+}
+
+footer p {
+  width: 100%;
+  text-align: left;
 }
 
 h1 {
@@ -52,8 +68,12 @@ h1 {
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .messageContainer {
@@ -97,9 +117,12 @@ a {
   font-size: 0.9rem;
 }
 
-.messageFormContainer input,
-.messageFormContainer button {
+.messageFormContainer input {
   margin: 5px auto;
+}
+
+.messageFormContainer button {
+  margin: 10px auto 0;
 }
 
 .validationFail {
@@ -137,6 +160,29 @@ a {
 .messageButtons button {
   margin: 0 auto 10px;
   /* margin-bottom: 10px; */
+}
+
+.messagesList {
+  /* min-width: 300px;
+  width: 80%;
+  max-width: 500px; */
+  width: clamp(300px, 80%, 500px);
+  margin: 0 auto;
+}
+
+.messagesList li {
+  font-family: 'Source Code Pro', monospace;
+  text-align: left;
+  margin: 10px auto;
+}
+
+.messagesList Li:focus,
+.messagesList Li:hover {
+  font-weight: bold;
+}
+
+.allMessagesContainer button {
+  margin: 20px auto 60px;
 }
 
 .baseButton {
