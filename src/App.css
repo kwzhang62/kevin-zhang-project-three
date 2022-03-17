@@ -109,18 +109,23 @@ ul {
 .messageFormContainer input {
   min-width: 300px;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid black;
   text-align: center;
 }
 
 .messageFormContainer input:hover,
 .messageFormContainer input:focus {
   outline: none;
-  border-bottom: 1px solid black;
+  /* border-bottom: 3px solid black; */
 }
 
 .messageFormContainer input::placeholder {
   font-size: 0.9rem;
+}
+
+.messageFormContainer input:hover::placeholder,
+.messageFormContainer input:focus::placeholder {
+  font-size: 1rem;
 }
 
 .messageFormContainer input {
